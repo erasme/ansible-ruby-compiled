@@ -1,0 +1,19 @@
+galaxy_info:
+  author: Michel Blanc
+  description: compiled-ruby role
+  company: ERASME/Grand-Lyon Métropole
+  license: MIT
+  min_ansible_version: 1.8
+
+  platforms:
+  - name: Ubuntu
+    versions:
+      - all
+  - name: Debian
+    versions:
+      - all
+  categories:
+    - development
+
+dependencies:
+  - { role: rbenv, when: "0 < ruby_versions|length" }

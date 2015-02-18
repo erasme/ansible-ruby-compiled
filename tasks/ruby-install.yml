@@ -1,0 +1,40 @@
+- debug: msg="Ruby version {{ ruby_version }}"
+- debug: msg="Default version {{ ruby_default }}"
+- debug: msg="Deploy user {{ ruby_deploy_user }}"
+- debug: msg="Rbenv MAKEOPTS {{ rbenv_makeopts }}"
+
+- name: Checks if target ruby is installed
+  shell: cd; bash -lc "rbenv versions | grep {{ ruby_version }} | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '"
+  register: ruby_is_installed
+  changed_when: ruby_is_installed.stdout != ruby_version
+
+- name: Sets fake ruby version for check mode
+  set_fact:
+    ruby_is_installed: { 'stdout': "{{ruby_version}}" }
+  when: ruby_is_installed|skipped
+
+- command: /usr/local/bin/flush-iptables
+  when: ruby_is_installed.stdout != ruby_version
+  ignore_errors: true
+  sudo: no
+
+- name: Installs ruby
+  shell: cd; bash -lc "MAKEOPTS={{ rbenv_makeopts }} CONFIGURE_OPTS="--disable-install-rdoc" rbenv install {{ ruby_version }}"
+  when: ruby_is_installed.stdout != ruby_version
+  # Takes no more than 600 secs on a small VM
+  async: 900
+  poll: 30
+
+- name: Installs bundler for new ruby
+  shell: cd; bash -lc "rbenv local {{ ruby_version }} && gem install bundler"
+  when: ruby_is_installed.stdout != ruby_version
+  register: new_ruby_installed
+
+- shell: /sbin/iptables-restore < {{ firewall.rules_file }}
+  ignore_errors: true
+  when: ruby_is_installed.stdout != ruby_version
+  sudo: no
+
+- name: Set global rbenv version
+  shell: cd; bash -lc "rbenv global {{ ruby_version }}"
+  when: new_ruby_installed|changed and ruby_version == ruby_default

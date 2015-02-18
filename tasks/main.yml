@@ -1,0 +1,17 @@
+- debug: msg="Ruby version {{ ruby_version }}"
+- debug: msg="Default version {{ ruby_default }}"
+- debug: msg="Deploy user {{ ruby_deploy_user}}"
+
+# Common prereqs (e.g. build tools, libs)
+- include: common-prereqs.yml tags=ruby,ruby:install
+
+# Installing required ruby versions
+- include: ruby-install.yml ruby_version={{version}} tags=ruby,ruby:install
+  sudo: yes
+  sudo_user: "{{ ruby_deploy_user }}"
+
+# Common ruby environment tasks (e.g. adding a .gemrc, ...)
+- include: common-post.yml ruby_version={{version}} tags=ruby,ruby:config
+  sudo: yes
+  sudo_user: "{{ ruby_deploy_user }}"
+
