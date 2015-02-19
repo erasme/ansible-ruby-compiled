@@ -1,0 +1,13 @@
+language: python
+python: '2.7'
+virtualenv:
+  system_site_packages: true
+before_install: true
+install: true
+script:
+- sudo useradd -m foobar
+- git clone --depth 1 https://github.com/nickjj/rolespec
+- cd rolespec ; bin/rolespec -r https://github.com/erasme/ansible-roles-specs.git
+notifications:
+  slack:
+    secure: f4s+CrjKmv58411G0QNkR5cro7MkzlIxAuujYovn/wA59LSvKNF/aK+wwrBya1IQZfH80CmcHZGKOKBVM7dDpnsEMkH5U/9Fu3NO1M8YqPcSQWSXvkEdvbkUgWoXbkUOWqxsbbe5SiBnbYDj40Z6zR5oWe/j79QmNb5Hj9UWDws=
