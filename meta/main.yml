@@ -15,6 +15,6 @@ galaxy_info:
   categories:
     - development
 
-dependencies:
-  - role: erasme.rbenv
-    when: "0 < ruby_versions|length"
+dependencies: []
+  #  - role: erasme.rbenv
+  #  when: "0 < ruby_versions|length"
