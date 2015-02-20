@@ -9,6 +9,8 @@
   when: ruby_is_installed|skipped
 
 - command: iptables -I OUTPUT -m tcp -p tcp -m multiport --dports 22,80,443,9418 -m comment --comment "ruby-ansible-temp" -j ACCEPT
+  sudo: yes
+  sudo_user: root
   changed_when: false
 
 - name: Installs ruby
@@ -24,6 +26,8 @@
   register: new_ruby_installed
 
 - command: iptables -D OUTPUT -m tcp -p tcp -m multiport --dports 22,80,443,9418 -m comment --comment "ruby-ansible-temp" -j ACCEPT
+  sudo: yes
+  sudo_user: root
   changed_when: false
 
 - name: Set global rbenv version
