@@ -17,5 +17,4 @@ galaxy_info:
 
 dependencies:
  - role: erasme.rbenv
-   when: "0 < ruby_versions|length"
 
