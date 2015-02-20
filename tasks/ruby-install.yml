@@ -1,5 +1,4 @@
 - debug: msg="ruby version    {{ ruby_version }}"
-- debug: msg="default version {{ ruby_default }}"
 - debug: msg="deploy user     {{ ruby_deploy_user }}"
 - debug: msg="ruby makeopts   {{ ruby_makeopts }}"
 
