@@ -16,11 +16,6 @@
 - command: iptables -I OUTPUT -m tcp -p tcp -m multiport --dports 22,80,443,9418 -m comment --comment "ruby-ansible-temp" -j ACCEPT
   changed_when: false
 
-- command: /usr/local/bin/flush-iptables
-  when: ruby_is_installed.stdout != ruby_version
-  ignore_errors: true
-  sudo: no
-
 - name: Installs ruby
   shell: cd; bash -lc "MAKEOPTS={{ ruby_makeopts }} CONFIGURE_OPTS="--disable-install-rdoc" rbenv install {{ ruby_version }}"
   when: ruby_is_installed.stdout != ruby_version
@@ -38,5 +33,5 @@
 
 - name: Set global rbenv version
   shell: cd; bash -lc "rbenv global {{ ruby_version }}"
-  when: new_ruby_installed|changed and ruby_version == ruby_default
+  when: new_ruby_installed|changed
 
