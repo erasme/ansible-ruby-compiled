@@ -1,7 +1,3 @@
-- debug: msg="ruby version    {{ ruby_version }}"
-- debug: msg="deploy user     {{ ruby_deploy_user }}"
-- debug: msg="ruby makeopts   {{ ruby_makeopts }}"
-
 - name: Checks if target ruby is installed
   shell: cd; bash -lc "rbenv versions | grep {{ ruby_version }} | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '"
   register: ruby_is_installed
