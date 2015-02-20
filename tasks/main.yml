@@ -7,7 +7,7 @@
   sudo_user: "{{ ruby_deploy_user }}"
 
 # Common ruby environment tasks (e.g. adding a .gemrc, ...)
-- include: common-post.yml ruby_version={{version}} tags=ruby,ruby:config
+- include: common-post.yml tags=ruby,ruby:config
   sudo: yes
   sudo_user: "{{ ruby_deploy_user }}"
 
