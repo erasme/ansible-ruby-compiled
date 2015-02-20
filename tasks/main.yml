@@ -2,7 +2,7 @@
 - include: common-prereqs.yml tags=ruby,ruby:install
 
 # Installing required ruby versions
-- include: ruby-install.yml ruby_version={{version}} tags=ruby,ruby:install
+- include: ruby-install.yml tags=ruby,ruby:install
   sudo: yes
   sudo_user: "{{ ruby_deploy_user }}"
 

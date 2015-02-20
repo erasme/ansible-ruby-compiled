@@ -1,5 +1,3 @@
-- debug: var=ruby_version
-
 - name: Checks if target ruby is installed
   shell: cd; bash -lc "rbenv versions | grep {{ ruby_version }} | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '"
   register: ruby_is_installed
