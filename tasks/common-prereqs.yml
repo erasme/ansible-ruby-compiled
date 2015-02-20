@@ -1,9 +1,9 @@
-- command: iptables -I OUTPUT -m tcp -p tcp -m multiport --dports 22,80,443,9418 -m comment --comment "rbenv-ansible-temp" -j ACCEPT
+- command: iptables -I OUTPUT -m tcp -p tcp -m multiport --dports 22,80,443,9418 -m comment --comment "ruby-ansible-temp" -j ACCEPT
   changed_when: false
 
 - name: Installs ruby building dependencies
   apt: name={{ item }} state=installed update-cache=yes
   with_items: ruby_deps
 
-- command: iptables -D OUTPUT -m tcp -p tcp -m multiport --dports 22,80,443,9418 -m comment --comment "rbenv-ansible-temp" -j ACCEPT
+- command: iptables -D OUTPUT -m tcp -p tcp -m multiport --dports 22,80,443,9418 -m comment --comment "ruby-ansible-temp" -j ACCEPT
   changed_when: false
