@@ -3,7 +3,7 @@ ruby
 
 [![Travis
 CI](http://img.shields.io/travis/erasme/ansible-ruby.svg?style=flat)](http://travis-ci.org/erasme/ansible-ruby)
-[![test-suite](http://img.shields.io/badge/ansible--roles--specs-ansibe-ruby-blue.svg?style=flat)](https://github.com/erasme/ansible-roles-specs/tree/master/ansible-ruby/)
+[![test-suite](http://img.shields.io/badge/ansible--roles--specs-ansibe--ruby-blue.svg?style=flat)](https://github.com/erasme/ansible-roles-specs/tree/master/ansible-ruby/)
 [![Ansible
 Galaxy](http://img.shields.io/badge/galaxy-erasme.ruby-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2910)
 
