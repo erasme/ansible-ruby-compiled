@@ -1,3 +1,5 @@
+- debug: msg="Deploying ruby {{ ruby_version }} for {{ ruby_deploy_user }}"
+
 # Common prereqs (e.g. build tools, libs)
 - include: common-prereqs.yml tags=ruby,ruby:install
 
