@@ -5,25 +5,28 @@ ruby_makeopts: "-j2"
 ruby_deps:
   - autoconf
   - automake
-  - bison 
-  - build-essential 
-  - curl 
-  - exuberant-ctags 
+  - bison
+  - build-essential
+  - curl
+  - exuberant-ctags
   - git-core
-  - libreadline6 
-  - libreadline6-dev 
+  - libreadline6
+  - libreadline6-dev
   - libreadline-dev
-  - libsqlite3-0 
-  - libsqlite3-dev 
-  - libssl-dev 
-  - libyaml-dev 
-  - libc6-dev 
+  - libsqlite3-0
+  - libsqlite3-dev
+  - libssl-dev
+  - libyaml-dev
+  - libc6-dev
   - libncurses5-dev
   - libtool
-  - libxml2-dev 
-  - libxslt1-dev 
-  - openssl 
-  - sqlite3 
-  - subversion 
-  - zlib1g 
-  - zlib1g-dev 
+  - libxml2-dev
+  - libxslt1-dev
+  - openssl
+  - sqlite3
+  - subversion
+  - zlib1g
+  - zlib1g-dev
+  - libffi-dev
+  - libgdbm3
+  - libgdbm-dev
