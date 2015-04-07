@@ -1,0 +1,2 @@
+
+ruby_deploy_user: "{{ci_user}}"
