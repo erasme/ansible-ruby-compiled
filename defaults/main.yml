@@ -10,16 +10,17 @@ ruby_deps:
   - curl 
   - exuberant-ctags 
   - git-core
+  - libc6-dev 
+  - libncurses5-dev
+  - libffi-dev
   - libreadline6 
   - libreadline6-dev 
   - libreadline-dev
   - libsqlite3-0 
   - libsqlite3-dev 
   - libssl-dev 
-  - libyaml-dev 
-  - libc6-dev 
-  - libncurses5-dev
   - libtool
+  - libyaml-dev 
   - libxml2-dev 
   - libxslt1-dev 
   - openssl 
