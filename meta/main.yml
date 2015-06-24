@@ -16,5 +16,6 @@ galaxy_info:
     - development
 
 dependencies:
- - role: erasme.rbenv
+  - role: ansible-rbenv 
+    src: https://github.com/erasme/ansible-rbenv.git
 

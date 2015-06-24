@@ -68,7 +68,7 @@ function install() {
 
   # Fetch and install rolespec
   su_wrap 'git clone https://github.com/leucos/rolespec.git'
-  cd rolespec && git checkout feature/enhanced-rolespec-lib-path && sudo make install
+  cd rolespec && git checkout feature/centos-support && sudo make install
   
   # Create empty test directory
   su_wrap 'ROLESPEC_LIB="/usr/local/lib/rolespec" rolespec -i ~/testdir'
@@ -87,8 +87,11 @@ function install() {
   # On travis, the test has to run straight away !
   if [ -n "${TRAVIS}" ]; then 
     exec /usr/local/bin/specs
+  else
+    # Execute environment specific stuff on non travis CI
+    [ -e ${SOURCE}/tests/prepare_environment.sh ] && ${SOURCE}/tests/prepare_environment.sh
   fi
-  exit
+  exit 0
 }
 
 if [ "x$1" == "x--install" ]; then
