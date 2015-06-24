@@ -1,6 +1,5 @@
 *.sublime-project
 *.sublime-workspace
 .tags
-tests/ansible-ruby-compiled/defaults.conf
 tests/ansible-ruby-compiled/playbooks/
 .vagrant
