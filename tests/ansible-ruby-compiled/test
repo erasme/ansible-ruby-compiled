@@ -15,8 +15,10 @@ fi
 # Install a specific version of Ansible
 install_ansible ${test_ansible_version}
 
+set -x
 # Préreq
 ansible-galaxy install -r requirements.yml
+set +x
 
 # Check syntax first, and then that the playbook runs
 assert_playbook_runs -e "ci_user=$CI_USER"
