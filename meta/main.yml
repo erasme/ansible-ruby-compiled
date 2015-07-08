@@ -18,3 +18,4 @@ galaxy_info:
 dependencies:
   - src: https://github.com/erasme/ansible-rbenv.git
     name: ansible-rbenv
+    role: ansible-rbenv
